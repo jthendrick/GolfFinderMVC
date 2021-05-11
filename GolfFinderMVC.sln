@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31019.35
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GolfFinderMVC", "GolfFinderMVC\GolfFinderMVC.csproj", "{F79C0A77-C7C7-412F-AC00-6E6CEE082E99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GolfFinder_Data", "GolfFinder_Data\GolfFinder_Data.csproj", "{0A38B3C1-CAA7-4E13-859A-FCE82611FFD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GolfFinder_Models", "GolfFinder_Models\GolfFinder_Models.csproj", "{ADA99CAE-8B2A-434A-BD3E-25860CB9FAA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GolfFinder_Service", "GolfFinder_Service\GolfFinder_Service.csproj", "{0147C00B-DDC4-4354-B3EE-EB0D6A11C804}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F79C0A77-C7C7-412F-AC00-6E6CEE082E99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F79C0A77-C7C7-412F-AC00-6E6CEE082E99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F79C0A77-C7C7-412F-AC00-6E6CEE082E99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F79C0A77-C7C7-412F-AC00-6E6CEE082E99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A38B3C1-CAA7-4E13-859A-FCE82611FFD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A38B3C1-CAA7-4E13-859A-FCE82611FFD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A38B3C1-CAA7-4E13-859A-FCE82611FFD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A38B3C1-CAA7-4E13-859A-FCE82611FFD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADA99CAE-8B2A-434A-BD3E-25860CB9FAA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADA99CAE-8B2A-434A-BD3E-25860CB9FAA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADA99CAE-8B2A-434A-BD3E-25860CB9FAA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADA99CAE-8B2A-434A-BD3E-25860CB9FAA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0147C00B-DDC4-4354-B3EE-EB0D6A11C804}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0147C00B-DDC4-4354-B3EE-EB0D6A11C804}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0147C00B-DDC4-4354-B3EE-EB0D6A11C804}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0147C00B-DDC4-4354-B3EE-EB0D6A11C804}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F145FA6B-BAFB-4448-8164-AB7F9AB6B3F1}
+	EndGlobalSection
+EndGlobal
