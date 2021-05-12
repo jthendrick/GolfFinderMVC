@@ -56,11 +56,35 @@
   <ItemGroup>
     <Compile Include="CourseData\Course.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202105111506340_InitialCreate.cs" />
+    <Compile Include="Migrations\202105111506340_InitialCreate.Designer.cs">
+      <DependentUpon>202105111506340_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105111916457_initialize.cs" />
+    <Compile Include="Migrations\202105111916457_initialize.Designer.cs">
+      <DependentUpon>202105111916457_initialize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105121422369_secondmigrate.cs" />
+    <Compile Include="Migrations\202105121422369_secondmigrate.Designer.cs">
+      <DependentUpon>202105121422369_secondmigrate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202105111506340_InitialCreate.resx">
+      <DependentUpon>202105111506340_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105111916457_initialize.resx">
+      <DependentUpon>202105111916457_initialize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105121422369_secondmigrate.resx">
+      <DependentUpon>202105121422369_secondmigrate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

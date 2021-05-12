@@ -1,0 +1,80 @@
+﻿@model GolfFinder_Models.Course_Models.CourseDetails
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CourseDetails</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BeginnerFriendly)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BeginnerFriendly)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AlcoholFriendly)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlcoholFriendly)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NineHoleCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NineHoleCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EighteenHoleCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EighteenHoleCost)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

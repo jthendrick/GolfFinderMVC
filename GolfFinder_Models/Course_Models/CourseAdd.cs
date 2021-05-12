@@ -5,23 +5,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GolfFinder_Data.CourseData
+namespace GolfFinder_Models.Course_Models
 {
-    public class Course
+    public class CourseAdd
     {
-        [Key]
-        public int CourseID { get; set; }
         [Required]
-        public Guid OwnerID { get; set; }
-        //[Required]
         public string CourseName { get; set; }
-        //[Required]
+        [Required]
         public string CourseAddress { get; set; }
         public bool BeginnerFriendly { get; set; }
         public bool AlcoholFriendly { get; set; }
-        //[Required]
+        [Required]
         public decimal NineHoleCost { get; set; }
-       // [Required]
+        [Required]
         public decimal EighteenHoleCost { get; set; }
     }
 }
