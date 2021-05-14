@@ -68,8 +68,22 @@
     <Compile Include="Migrations\202105121422369_secondmigrate.Designer.cs">
       <DependentUpon>202105121422369_secondmigrate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105131519400_fourthmigration.cs" />
+    <Compile Include="Migrations\202105131519400_fourthmigration.Designer.cs">
+      <DependentUpon>202105131519400_fourthmigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105141445294_update.cs" />
+    <Compile Include="Migrations\202105141445294_update.Designer.cs">
+      <DependentUpon>202105141445294_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105141615053_scorefunction.cs" />
+    <Compile Include="Migrations\202105141615053_scorefunction.Designer.cs">
+      <DependentUpon>202105141615053_scorefunction.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RatingsData\Rating.cs" />
+    <Compile Include="ScoreData\Score.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -84,6 +98,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105121422369_secondmigrate.resx">
       <DependentUpon>202105121422369_secondmigrate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105131519400_fourthmigration.resx">
+      <DependentUpon>202105131519400_fourthmigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105141445294_update.resx">
+      <DependentUpon>202105141445294_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105141615053_scorefunction.resx">
+      <DependentUpon>202105141615053_scorefunction.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

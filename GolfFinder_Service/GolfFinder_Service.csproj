@@ -56,6 +56,8 @@
   <ItemGroup>
     <Compile Include="Course_Service\CourseService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rating_Service\RatingService.cs" />
+    <Compile Include="Score_Service\ScoreService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

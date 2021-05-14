@@ -4,6 +4,8 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using GolfFinder_Data.CourseData;
+using GolfFinder_Data.RatingsData;
+using GolfFinder_Data.ScoreData;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -33,6 +35,8 @@ namespace GolfFinder_Data
             return new ApplicationDbContext();
         }
         public DbSet<Course> Courses { get; set; }
+        public DbSet<Rating> Ratings  { get; set; }
+        public DbSet<Score> Scores { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

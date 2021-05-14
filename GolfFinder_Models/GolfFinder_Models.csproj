@@ -59,10 +59,24 @@
     <Compile Include="Course_Models\CourseList.cs" />
     <Compile Include="Course_Models\CourseEdit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rating_Models\RatingAdd.cs" />
+    <Compile Include="Rating_Models\RatingDetails.cs" />
+    <Compile Include="Rating_Models\RatingEdit.cs" />
+    <Compile Include="Rating_Models\RatingList.cs" />
+    <Compile Include="Score_Models\ScoreAdd.cs" />
+    <Compile Include="Score_Models\ScoreDetails.cs" />
+    <Compile Include="Score_Models\ScoreEdit.cs" />
+    <Compile Include="Score_Models\ScoreList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GolfFinder_Data\GolfFinder_Data.csproj">
+      <Project>{0a38b3c1-caa7-4e13-859a-fce82611ffd9}</Project>
+      <Name>GolfFinder_Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

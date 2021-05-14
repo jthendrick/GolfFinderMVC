@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GolfFinder_Data.RatingsData;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -23,5 +24,7 @@ namespace GolfFinder_Data.CourseData
         public decimal NineHoleCost { get; set; }
        // [Required]
         public decimal EighteenHoleCost { get; set; }
+
+        public virtual List<Rating> Ratings { get; set; } = new List<Rating>();
     }
 }
