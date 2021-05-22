@@ -8,6 +8,7 @@ namespace GolfFinder_Models.Score_Models
 {
     public class ScoreList
     {
+        public int ScoreID { get; set; }
         public int Hole1 { get; set; }
         public int ParHole1 { get; set; }
         public int Hole2 { get; set; }

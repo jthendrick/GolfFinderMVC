@@ -80,7 +80,7 @@ namespace GolfFinder_Service.Score_Service
                         e =>
                         new ScoreList
                         {
-                            //ParScore = e.ParScore
+                            
                             Hole1 = e.Hole1,
                             ParHole1 = e.ParHole1,
                             Hole2 = e.Hole2,
@@ -117,6 +117,7 @@ namespace GolfFinder_Service.Score_Service
                             ParHole17 = e.ParHole17,
                             Hole18 = e.Hole18,
                             ParHole18 = e.ParHole18
+
                         }
                         );
                 return query.ToArray();
