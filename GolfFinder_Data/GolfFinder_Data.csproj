@@ -56,29 +56,9 @@
   <ItemGroup>
     <Compile Include="CourseData\Course.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202105111506340_InitialCreate.cs" />
-    <Compile Include="Migrations\202105111506340_InitialCreate.Designer.cs">
-      <DependentUpon>202105111506340_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105111916457_initialize.cs" />
-    <Compile Include="Migrations\202105111916457_initialize.Designer.cs">
-      <DependentUpon>202105111916457_initialize.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105121422369_secondmigrate.cs" />
-    <Compile Include="Migrations\202105121422369_secondmigrate.Designer.cs">
-      <DependentUpon>202105121422369_secondmigrate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105131519400_fourthmigration.cs" />
-    <Compile Include="Migrations\202105131519400_fourthmigration.Designer.cs">
-      <DependentUpon>202105131519400_fourthmigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105141445294_update.cs" />
-    <Compile Include="Migrations\202105141445294_update.Designer.cs">
-      <DependentUpon>202105141445294_update.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105141615053_scorefunction.cs" />
-    <Compile Include="Migrations\202105141615053_scorefunction.Designer.cs">
-      <DependentUpon>202105141615053_scorefunction.cs</DependentUpon>
+    <Compile Include="Migrations\202105220052190_Initial.cs" />
+    <Compile Include="Migrations\202105220052190_Initial.Designer.cs">
+      <DependentUpon>202105220052190_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -90,23 +70,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202105111506340_InitialCreate.resx">
-      <DependentUpon>202105111506340_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105111916457_initialize.resx">
-      <DependentUpon>202105111916457_initialize.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105121422369_secondmigrate.resx">
-      <DependentUpon>202105121422369_secondmigrate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105131519400_fourthmigration.resx">
-      <DependentUpon>202105131519400_fourthmigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105141445294_update.resx">
-      <DependentUpon>202105141445294_update.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105141615053_scorefunction.resx">
-      <DependentUpon>202105141615053_scorefunction.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202105220052190_Initial.resx">
+      <DependentUpon>202105220052190_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

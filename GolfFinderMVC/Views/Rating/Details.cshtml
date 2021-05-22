@@ -1,0 +1,58 @@
+﻿@model GolfFinder_Models.Rating_Models.RatingDetails
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RatingDetails</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RatingID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RatingID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cleanliness)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cleanliness)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Layout)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Layout)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dificulty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dificulty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Amenities)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Amenities)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

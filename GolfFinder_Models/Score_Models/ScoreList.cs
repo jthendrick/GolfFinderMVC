@@ -44,6 +44,24 @@ namespace GolfFinder_Models.Score_Models
         public int ParHole17 { get; set; }
         public int Hole18 { get; set; }
         public int ParHole18 { get; set; }
-        public int ParScore { get; set; }
+        public int ParScore
+        {
+            get
+            {
+                var totalStrokes = Hole1 + Hole2 + Hole3 + Hole4 + Hole5 + Hole6 + Hole7 + Hole8 + Hole9 + Hole10 + Hole11 + Hole12 + Hole13 + Hole14 + Hole15 + Hole16 + Hole17 + Hole18;
+                var overUnder = ParHole1 + ParHole2 + ParHole3 + ParHole4 + ParHole5 + ParHole6 + ParHole7 + ParHole8 + ParHole9 + ParHole10 + ParHole11 + ParHole12 + ParHole13 + ParHole14 + ParHole15 + ParHole16 + ParHole17 + ParHole18;
+                var netScore = totalStrokes - overUnder;
+                return netScore;
+            }
+        }
+
+        public int TotalStrokes 
+        {
+            get
+            {
+                var totalStrokes = Hole1 + Hole2 + Hole3 + Hole4 + Hole5 + Hole6 + Hole7 + Hole8 + Hole9 + Hole10 + Hole11 + Hole12 + Hole13 + Hole14 + Hole15 + Hole16 + Hole17 + Hole18;
+                return totalStrokes;
+            }
+        }
     }
 }

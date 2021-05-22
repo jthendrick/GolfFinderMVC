@@ -39,6 +39,70 @@ namespace GolfFinderMVC.Controllers
             service.AddRating(model);
             return RedirectToAction("Index");
         }
+
+        public ActionResult Details(int id)
+        {
+            var svc = CreateRatingService();
+            var model = svc.GetRatingById(id);
+            return View(model);
+        }
+        
+        public ActionResult Edit(int id)
+        {
+            var service = CreateRatingService();
+            var detail = service.GetRatingById(id);
+            var model = new RatingEdit
+            {
+                RatingID = detail.RatingID,
+                Amenities = detail.Amenities,
+                Cleanliness = detail.Cleanliness,
+                Dificulty = detail.Dificulty,
+                Layout = detail.Layout,
+              
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, RatingEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.RatingID != id)
+            {
+                ModelState.AddModelError("", "ID Mismatch!");
+                return View(model);
+            }
+
+            var service = CreateRatingService();
+            if (service.UpdateRating(model))
+            {
+                TempData["SaveResult"] = "Your course was updated!";
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "Your course could not be updated.");
+            return View(model);
+        }
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateRatingService();
+            var model = svc.GetRatingById(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteRating(int id)
+        {
+            var service = CreateRatingService();
+            service.DeleteRating(id);
+            TempData["SaveResult"] = "Your note was deleted!";
+            return RedirectToAction("Index");
+
+        }
         private RatingService CreateRatingService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

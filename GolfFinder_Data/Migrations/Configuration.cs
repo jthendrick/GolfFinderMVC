@@ -10,7 +10,6 @@ namespace GolfFinder_Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "GolfFinder_Data.ApplicationDbContext";
         }
 
         protected override void Seed(GolfFinder_Data.ApplicationDbContext context)

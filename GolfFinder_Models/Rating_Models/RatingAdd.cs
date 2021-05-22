@@ -12,7 +12,7 @@ namespace GolfFinder_Models.Rating_Models
     public class RatingAdd
     {
         //[ForeignKey(nameof(Course))]
-        //public int CourseID { get; set; }
+        public int RatingID { get; set; }
         //public virtual Course Course { get; set; }
         [Required, Range(0, 10)]
         public int Cleanliness { get; set; }
