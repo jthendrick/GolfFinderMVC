@@ -12,6 +12,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.RatingID)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Cleanliness)
         </th>
         <th>
@@ -27,25 +30,28 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cleanliness)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Layout)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Dificulty)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Amenities)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.RatingID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Cleanliness)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Layout)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Dificulty)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Amenities)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.RatingID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.RatingID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.RatingID })
+    </td>
+</tr>
 }
 
 </table>

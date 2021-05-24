@@ -12,6 +12,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.ScoreID)
+        </th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Hole1)
         </th>
         <th>
@@ -118,7 +121,7 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ParHole18)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.ParScore)
         </th>
@@ -131,6 +134,9 @@
 @foreach (var item in Model) {
 <tr>
     <td>
+        @Html.DisplayFor(modelItem => item.ScoreID)
+    </td>
+    @*<td>
         @Html.DisplayFor(modelItem => item.Hole1)
     </td>
     <td>
@@ -237,7 +243,7 @@
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.ParHole18)
-    </td>
+    </td>*@
     <td>
         @Html.DisplayFor(modelItem => item.ParScore)
     </td>
@@ -245,9 +251,9 @@
         @Html.DisplayFor(modelItem => item.TotalStrokes)
     </td>
     <td>
-        @Html.ActionLink("Edit", "Edit", new {  id=item.ScoreID  }) |
-        @Html.ActionLink("Details", "Details", new {  id=item.ScoreID  }) |
-        @Html.ActionLink("Delete", "Delete", new {  id=item.ScoreID })
+        @Html.ActionLink("Edit", "Edit", new { id = item.ScoreID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.ScoreID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.ScoreID })
     </td>
 </tr>
 }

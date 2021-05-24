@@ -52,6 +52,7 @@ namespace GolfFinder_Service.Rating_Service
                         new RatingList
                         {
                             //Course = e.Course,
+                            RatingID = e.RatingID,
                             Amenities = e.Amenities,
                             Cleanliness = e.Amenities,
                             Dificulty = e.Dificulty,
@@ -73,7 +74,7 @@ namespace GolfFinder_Service.Rating_Service
                 return
                     new RatingDetails
                     {
-                        //RatingID = entity.RatingID,
+                        RatingID = entity.RatingID,
                         Amenities = entity.Amenities,
                         Cleanliness = entity.Cleanliness,
                         Dificulty = entity.Dificulty,

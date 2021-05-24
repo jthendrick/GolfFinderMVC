@@ -10,7 +10,7 @@ namespace GolfFinder_Data.ScoreData
     public class Score
     {
         [Key]
-        public int ScoreSheetID { get; set; }
+        public int ScoreID { get; set; }
         public Guid OwnerID { get; set; }
 
         public int Hole1 { get; set; }

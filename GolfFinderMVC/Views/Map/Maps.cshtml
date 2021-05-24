@@ -1,0 +1,115 @@
+﻿
+@{
+    ViewBag.Title = "Maps";
+}
+
+
+
+<head>
+    <title>
+        Google Map
+    </title>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCY0BIZB5W5RzeBVPUz9-TG_Jz7NIJumpI&language=en&region=US"></script>
+
+</head>
+<div>
+    <div id="map-dialog1">
+        <div id="fordragging">
+            <input id="pac-input" class="controls" type="text" placeholder="Search For Keywords"> <input type="button" class="btn btn-primary searchbut" id="searchid" value="search" style="margin-top: 9px;" />
+        </div>
+    </div>
+    <div id="modal-map2" style="height: 76%;width: 77%; position: absolute; overflow: hidden;"></div>
+</div>
+
+<script>
+
+    var Indianapolis = { lat: 39.78842, lng: -86.15613 };
+
+    var map = new google.maps.Map(document.getElementById('modal-map2'), {
+        zoom: 4,
+        center: Indianapolis,
+        mapTypeId: google.maps.MapTypeId.Hybrid,
+        zoomControl: true,
+        zoomControlOptions: {
+            position: google.maps.ControlPosition.LEFT_BOTTOM
+        },
+        streetViewControl: true,
+        streetViewControlOptions: {
+            position: google.maps.ControlPosition.LEFT_BOTTOM
+        },
+        mapTypeControlOptions: {
+            position: google.maps.ControlPosition.RIGHT_CENTER
+        }
+
+    });  
+
+
+    var trafficLayer = new google.maps.TrafficLayer();
+    trafficLayer.setMap(map);
+
+    var input = document.getElementById('pac-input');
+    var button = document.getElementById('searchid')
+
+    var searchBox = new google.maps.places.searchBox(input);
+
+    map.controls[google.maps.ControlPosition.TOP_CENTER].push(input);
+    map.controls[google.maps.ControlPosition.TOP_CENTER].push(button);
+
+    document.getElementById('searchid').onclick = function () {
+        google.maps.event.trigger(input, 'focus')
+        google.maps.event.trigger(input, 'keydown', { keyCode: 13 });
+    };
+
+    var markers = [];
+    searchBox.addListener('places_changed', function () {
+        var places = searchBox.getPlaces();
+        if (places.length == 0) {
+            return;
+        }
+
+        markers.forEach(function (marker) {
+            marker.setMap(null);
+        });
+        markers = [];
+
+        var bounds = new google.maps.LatLngBounds();
+
+        places.forEach(function (place) {
+            if (!place.geometry) {
+                console.log("Returned place contains no geometry")
+                return;
+            }
+            var icon = {
+                url: place.icon,
+                size: new google.maps.Size(71, 71),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(17, 34),
+                scaledSize: new google.maps.Size(25, 25)
+            };
+
+            markers.push(new google.maps.Marker({
+                map: map,
+                icon: icon,
+                title: place.name,
+
+                position: place.geometry.location
+            }));
+
+            if (place.geometry.viewport) {
+                bounds.union(place.geometry.viewport);
+            } else {
+                bounds.extend(place.geometry.location);
+            }
+        });
+        map.fitBounds(bounds);
+    });
+
+
+</script>
+
+
+
+
+
