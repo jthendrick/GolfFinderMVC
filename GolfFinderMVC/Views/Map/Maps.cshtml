@@ -4,110 +4,154 @@
 }
 
 
-
+<!DOCTYPE html>
+<html>
 <head>
-    <title>
-        Google Map
-    </title>
-
-    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCY0BIZB5W5RzeBVPUz9-TG_Jz7NIJumpI&language=en&region=US"></script>
-
+    <title>Golf Finder Google Map</title>
+    <meta charset="utf-8">
 </head>
-<div>
-    <div id="map-dialog1">
-        <div id="fordragging">
-            <input id="pac-input" class="controls" type="text" placeholder="Search For Keywords"> <input type="button" class="btn btn-primary searchbut" id="searchid" value="search" style="margin-top: 9px;" />
-        </div>
+<body>
+    <div class="container">
+        <!-- Search input -->
+        <input id="searchInput" class="controls" type="text" placeholder="Enter a location">
+
+        <!-- Google map -->
+        <div id="map"></div>
+
+        <!-- Display geo location data -->
+        <ul class="geo-data">
+            <li>Full Address: <span id="location"></span></li>
+            <li>Postal Code: <span id="postal_code"></span></li>
+            <li>Country: <span id="country"></span></li>
+            <li>Latitude: <span id="lat"></span></li>
+            <li>Longitude: <span id="lon"></span></li>
+        </ul>
     </div>
-    <div id="modal-map2" style="height: 76%;width: 77%; position: absolute; overflow: hidden;"></div>
-</div>
 
-<script>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCY0BIZB5W5RzeBVPUz9-TG_Jz7NIJumpI&callback=initMap" async defer></script>
+    <script>
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 40.4486616, lng: -86.96291699999999 },
+                zoom: 13
+            });
+            var input = document.getElementById('searchInput');
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
-    var Indianapolis = { lat: 39.78842, lng: -86.15613 };
+            var autocomplete = new google.maps.places.Autocomplete(input);
+            autocomplete.bindTo('bounds', map);
 
-    var map = new google.maps.Map(document.getElementById('modal-map2'), {
-        zoom: 4,
-        center: Indianapolis,
-        mapTypeId: google.maps.MapTypeId.Hybrid,
-        zoomControl: true,
-        zoomControlOptions: {
-            position: google.maps.ControlPosition.LEFT_BOTTOM
-        },
-        streetViewControl: true,
-        streetViewControlOptions: {
-            position: google.maps.ControlPosition.LEFT_BOTTOM
-        },
-        mapTypeControlOptions: {
-            position: google.maps.ControlPosition.RIGHT_CENTER
-        }
-
-    });  
-
-
-    var trafficLayer = new google.maps.TrafficLayer();
-    trafficLayer.setMap(map);
-
-    var input = document.getElementById('pac-input');
-    var button = document.getElementById('searchid')
-
-    var searchBox = new google.maps.places.searchBox(input);
-
-    map.controls[google.maps.ControlPosition.TOP_CENTER].push(input);
-    map.controls[google.maps.ControlPosition.TOP_CENTER].push(button);
-
-    document.getElementById('searchid').onclick = function () {
-        google.maps.event.trigger(input, 'focus')
-        google.maps.event.trigger(input, 'keydown', { keyCode: 13 });
-    };
-
-    var markers = [];
-    searchBox.addListener('places_changed', function () {
-        var places = searchBox.getPlaces();
-        if (places.length == 0) {
-            return;
-        }
-
-        markers.forEach(function (marker) {
-            marker.setMap(null);
-        });
-        markers = [];
-
-        var bounds = new google.maps.LatLngBounds();
-
-        places.forEach(function (place) {
-            if (!place.geometry) {
-                console.log("Returned place contains no geometry")
-                return;
-            }
-            var icon = {
-                url: place.icon,
-                size: new google.maps.Size(71, 71),
-                origin: new google.maps.Point(0, 0),
-                anchor: new google.maps.Point(17, 34),
-                scaledSize: new google.maps.Size(25, 25)
-            };
-
-            markers.push(new google.maps.Marker({
+            var infowindow = new google.maps.InfoWindow();
+            var marker = new google.maps.Marker({
                 map: map,
-                icon: icon,
-                title: place.name,
+                anchorPoint: new google.maps.Point(0, -29)
+            });
 
-                position: place.geometry.location
-            }));
+            autocomplete.addListener('place_changed', function () {
+                infowindow.close();
+                marker.setVisible(false);
+                var place = autocomplete.getPlace();
+                if (!place.geometry) {
+                    window.alert("Autocomplete's returned place contains no geometry");
+                    return;
+                }
 
-            if (place.geometry.viewport) {
-                bounds.union(place.geometry.viewport);
-            } else {
-                bounds.extend(place.geometry.location);
-            }
-        });
-        map.fitBounds(bounds);
-    });
+                // If the place has a geometry, then present it on a map.
+                if (place.geometry.viewport) {
+                    map.fitBounds(place.geometry.viewport);
+                } else {
+                    map.setCenter(place.geometry.location);
+                    map.setZoom(17);
+                }
+                marker.setIcon(({
+                    url: place.icon,
+                    size: new google.maps.Size(71, 71),
+                    origin: new google.maps.Point(0, 0),
+                    anchor: new google.maps.Point(17, 34),
+                    scaledSize: new google.maps.Size(35, 35)
+                }));
+                marker.setPosition(place.geometry.location);
+                marker.setVisible(true);
 
+                var address = '';
+                if (place.address_components) {
+                    address = [
+                        (place.address_components[0] && place.address_components[0].short_name || ''),
+                        (place.address_components[1] && place.address_components[1].short_name || ''),
+                        (place.address_components[2] && place.address_components[2].short_name || '')
+                    ].join(' ');
+                }
 
-</script>
+                infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
+                infowindow.open(map, marker);
+
+                // Location details
+                for (var i = 0; i < place.address_components.length; i++) {
+                    if (place.address_components[i].types[0] == 'postal_code') {
+                        document.getElementById('postal_code').innerHTML = place.address_components[i].long_name;
+                    }
+                    if (place.address_components[i].types[0] == 'country') {
+                        document.getElementById('country').innerHTML = place.address_components[i].long_name;
+                    }
+                }
+                document.getElementById('location').innerHTML = place.formatted_address;
+                document.getElementById('lat').innerHTML = place.geometry.location.lat();
+                document.getElementById('lon').innerHTML = place.geometry.location.lng();
+            });
+        }
+    </script>
+</body>
+</html>
+<style>
+    html, body {
+        height: 100%;
+        margin: 30px;
+        padding: 30px;
+    }
+
+    #map {
+        width: 100%;
+        height: 600px;
+    }
+
+    .controls {
+        margin-top: 10px;
+        border: 1px solid transparent;
+        border-radius: 2px 0 0 2px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        height: 32px;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    #searchInput {
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        margin-left: 12px;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 50%;
+    }
+
+        #searchInput:focus {
+            border-color: #4d90fe;
+        }
+
+    .geo-data {
+        border: 2px dashed #2A99CF;
+        padding: 10px;
+        font-size: 17px;
+        list-style: none;
+    }
+
+        .geo-data span {
+            color: #ed691f;
+        }
+</style>
+
 
 
 

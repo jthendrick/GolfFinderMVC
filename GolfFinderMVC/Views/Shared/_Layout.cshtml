@@ -23,8 +23,9 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Courses", "Index", "Course")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Scores", "Index", "Score")</li>
+                    <li>@Html.ActionLink("Ratings", "index", "Rating")</li>
+                    <li>@Html.ActionLink("Find a course", "maps", "map")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -34,7 +35,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Golf Finder</p>
         </footer>
     </div>
 
