@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,11 @@ namespace GolfFinder_Models.Score_Models
     public class ScoreList
     {
         public int ScoreID { get; set; }
+        public int CourseID { get; set; }
+        public string CourseName { get; set; }
+
+        [Display(Name = "Date")]
+        public DateTimeOffset CreatedUtc { get; set; }
         public int Hole1 { get; set; }
         public int ParHole1 { get; set; }
         public int Hole2 { get; set; }

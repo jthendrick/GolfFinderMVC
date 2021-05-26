@@ -12,7 +12,11 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ScoreID)
+            @Html.DisplayNameFor(model => model.CourseName)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
         </th>
         @*<th>
             @Html.DisplayNameFor(model => model.Hole1)
@@ -134,116 +138,119 @@
 @foreach (var item in Model) {
 <tr>
     <td>
-        @Html.DisplayFor(modelItem => item.ScoreID)
+        @Html.DisplayFor(modelItem => item.CourseName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CreatedUtc)
     </td>
     @*<td>
-        @Html.DisplayFor(modelItem => item.Hole1)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ParHole1)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Hole2)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ParHole2)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Hole3)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ParHole3)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Hole4)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ParHole4)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Hole5)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ParHole5)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Hole6)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ParHole6)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Hole7)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ParHole7)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Hole8)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ParHole8)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Hole9)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ParHole9)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Hole10)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ParHole10)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Hole11)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ParHole11)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Hole12)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ParHole12)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Hole13)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ParHole13)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Hole14)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ParHole14)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Hole15)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ParHole15)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Hole16)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ParHole16)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Hole17)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ParHole17)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Hole18)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ParHole18)
-    </td>*@
+            @Html.DisplayFor(modelItem => item.Hole1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParHole1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hole2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParHole2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hole3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParHole3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hole4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParHole4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hole5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParHole5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hole6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParHole6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hole7)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParHole7)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hole8)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParHole8)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hole9)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParHole9)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hole10)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParHole10)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hole11)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParHole11)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hole12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParHole12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hole13)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParHole13)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hole14)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParHole14)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hole15)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParHole15)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hole16)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParHole16)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hole17)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParHole17)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hole18)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParHole18)
+        </td>*@
     <td>
         @Html.DisplayFor(modelItem => item.ParScore)
     </td>

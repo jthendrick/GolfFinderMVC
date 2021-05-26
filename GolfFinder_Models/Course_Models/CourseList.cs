@@ -9,6 +9,7 @@ namespace GolfFinder_Models.Course_Models
     public class CourseList
     {
         public int CourseID { get; set; }
+
         public string CourseName { get; set; }
         public string CourseAddress { get; set; }
     }

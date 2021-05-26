@@ -3,7 +3,7 @@ namespace GolfFinder_Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial : DbMigration
+    public partial class foreignkeys1 : DbMigration
     {
         public override void Up()
         {
@@ -28,46 +28,23 @@ namespace GolfFinder_Data.Migrations
                     {
                         RatingID = c.Int(nullable: false, identity: true),
                         OwnerID = c.Guid(nullable: false),
+                        CourseID = c.Int(),
                         Cleanliness = c.Int(nullable: false),
                         Layout = c.Int(nullable: false),
                         Dificulty = c.Int(nullable: false),
                         Amenities = c.Int(nullable: false),
-                        Course_CourseID = c.Int(),
                     })
                 .PrimaryKey(t => t.RatingID)
-                .ForeignKey("dbo.Course", t => t.Course_CourseID)
-                .Index(t => t.Course_CourseID);
-            
-            CreateTable(
-                "dbo.IdentityRole",
-                c => new
-                    {
-                        Id = c.String(nullable: false, maxLength: 128),
-                        Name = c.String(),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.IdentityUserRole",
-                c => new
-                    {
-                        UserId = c.String(nullable: false, maxLength: 128),
-                        RoleId = c.String(),
-                        IdentityRole_Id = c.String(maxLength: 128),
-                        ApplicationUser_Id = c.String(maxLength: 128),
-                    })
-                .PrimaryKey(t => t.UserId)
-                .ForeignKey("dbo.IdentityRole", t => t.IdentityRole_Id)
-                .ForeignKey("dbo.ApplicationUser", t => t.ApplicationUser_Id)
-                .Index(t => t.IdentityRole_Id)
-                .Index(t => t.ApplicationUser_Id);
+                .ForeignKey("dbo.Course", t => t.CourseID)
+                .Index(t => t.CourseID);
             
             CreateTable(
                 "dbo.Score",
                 c => new
                     {
-                        ScoreSheetID = c.Int(nullable: false, identity: true),
+                        ScoreID = c.Int(nullable: false, identity: true),
                         OwnerID = c.Guid(nullable: false),
+                        CourseID = c.Int(nullable: false),
                         Hole1 = c.Int(nullable: false),
                         ParHole1 = c.Int(nullable: false),
                         Hole2 = c.Int(nullable: false),
@@ -105,7 +82,33 @@ namespace GolfFinder_Data.Migrations
                         Hole18 = c.Int(nullable: false),
                         ParHole18 = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.ScoreSheetID);
+                .PrimaryKey(t => t.ScoreID)
+                .ForeignKey("dbo.Course", t => t.CourseID, cascadeDelete: true)
+                .Index(t => t.CourseID);
+            
+            CreateTable(
+                "dbo.IdentityRole",
+                c => new
+                    {
+                        Id = c.String(nullable: false, maxLength: 128),
+                        Name = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.IdentityUserRole",
+                c => new
+                    {
+                        UserId = c.String(nullable: false, maxLength: 128),
+                        RoleId = c.String(),
+                        IdentityRole_Id = c.String(maxLength: 128),
+                        ApplicationUser_Id = c.String(maxLength: 128),
+                    })
+                .PrimaryKey(t => t.UserId)
+                .ForeignKey("dbo.IdentityRole", t => t.IdentityRole_Id)
+                .ForeignKey("dbo.ApplicationUser", t => t.ApplicationUser_Id)
+                .Index(t => t.IdentityRole_Id)
+                .Index(t => t.ApplicationUser_Id);
             
             CreateTable(
                 "dbo.ApplicationUser",
@@ -161,18 +164,20 @@ namespace GolfFinder_Data.Migrations
             DropForeignKey("dbo.IdentityUserLogin", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserClaim", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
-            DropForeignKey("dbo.Rating", "Course_CourseID", "dbo.Course");
+            DropForeignKey("dbo.Score", "CourseID", "dbo.Course");
+            DropForeignKey("dbo.Rating", "CourseID", "dbo.Course");
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
-            DropIndex("dbo.Rating", new[] { "Course_CourseID" });
+            DropIndex("dbo.Score", new[] { "CourseID" });
+            DropIndex("dbo.Rating", new[] { "CourseID" });
             DropTable("dbo.IdentityUserLogin");
             DropTable("dbo.IdentityUserClaim");
             DropTable("dbo.ApplicationUser");
-            DropTable("dbo.Score");
             DropTable("dbo.IdentityUserRole");
             DropTable("dbo.IdentityRole");
+            DropTable("dbo.Score");
             DropTable("dbo.Rating");
             DropTable("dbo.Course");
         }

@@ -1,4 +1,5 @@
 ﻿using GolfFinder_Data.RatingsData;
+using GolfFinder_Data.ScoreData;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -14,17 +15,19 @@ namespace GolfFinder_Data.CourseData
         public int CourseID { get; set; }
         [Required]
         public Guid OwnerID { get; set; }
-        //[Required]
+        
         public string CourseName { get; set; }
-        //[Required]
+       
         public string CourseAddress { get; set; }
         public bool BeginnerFriendly { get; set; }
         public bool AlcoholFriendly { get; set; }
-        //[Required]
+        
         public decimal NineHoleCost { get; set; }
-       // [Required]
+    
         public decimal EighteenHoleCost { get; set; }
 
-        public virtual List<Rating> Ratings { get; set; } = new List<Rating>();
+        public virtual List<Score> Score { get; set; } = new List<Score>();
+
+        public virtual List<Rating> Rating { get; set; } = new List<Rating>();
     }
 }

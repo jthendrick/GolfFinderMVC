@@ -23,9 +23,7 @@ namespace GolfFinder_Service.Rating_Service
                 new Rating()
                 {
                     OwnerID = _userId,
-                    //Course = model.Course,
-                    //CourseID=model.CourseID,
-                    //RatingID = model.RatingID,
+                    CourseID = model.CourseID,                    
                     Cleanliness = model.Cleanliness,
                     Amenities = model.Amenities,
                     Dificulty = model.Dificulty,
@@ -53,6 +51,7 @@ namespace GolfFinder_Service.Rating_Service
                         {
                             //Course = e.Course,
                             RatingID = e.RatingID,
+                            CourseName = ctx.Courses.FirstOrDefault(c => c.CourseID == e.CourseID).CourseName,
                             Amenities = e.Amenities,
                             Cleanliness = e.Amenities,
                             Dificulty = e.Dificulty,
@@ -75,6 +74,7 @@ namespace GolfFinder_Service.Rating_Service
                     new RatingDetails
                     {
                         RatingID = entity.RatingID,
+                        CourseName = ctx.Courses.FirstOrDefault(c => c.CourseID == entity.CourseID).CourseName,
                         Amenities = entity.Amenities,
                         Cleanliness = entity.Cleanliness,
                         Dificulty = entity.Dificulty,
