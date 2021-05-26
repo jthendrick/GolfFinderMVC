@@ -7,13 +7,13 @@ namespace GolfFinder_Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class AddedViews : IMigrationMetadata
+    public sealed partial class foreignkeys1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedViews));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(foreignkeys1));
         
         string IMigrationMetadata.Id
         {
-            get { return "202105230122573_Added Views"; }
+            get { return "202105261443476_foreignkeys1"; }
         }
         
         string IMigrationMetadata.Source

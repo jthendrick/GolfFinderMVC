@@ -256,6 +256,7 @@
     <Content Include="Views\Score\Edit.cshtml" />
     <Content Include="Views\Score\Delete.cshtml" />
     <Content Include="Views\Map\Maps.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTimeOffset.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

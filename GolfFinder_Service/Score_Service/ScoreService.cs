@@ -22,6 +22,7 @@ namespace GolfFinder_Service.Score_Service
                 new Score()
                 {
                     OwnerID = _userId,
+                    CourseID = model.CourseID,
                     Hole1 = model.Hole1,
                     ParHole1 = model.ParHole1,
                     Hole2 = model.Hole2,
@@ -57,7 +58,8 @@ namespace GolfFinder_Service.Score_Service
                     Hole17 = model.Hole17,
                     ParHole17 = model.ParHole17,
                     Hole18 = model.Hole18,
-                    ParHole18 = model.ParHole18
+                    ParHole18 = model.ParHole18,
+                    CreatedUtc = DateTimeOffset.Now
 
 
                 };
@@ -81,6 +83,7 @@ namespace GolfFinder_Service.Score_Service
                         new ScoreList
                         {
                             ScoreID = e.ScoreID,
+                            CourseName = ctx.Courses.FirstOrDefault(c => c.CourseID == e.CourseID).CourseName,
                             Hole1 = e.Hole1,
                             ParHole1 = e.ParHole1,
                             Hole2 = e.Hole2,
@@ -116,7 +119,8 @@ namespace GolfFinder_Service.Score_Service
                             Hole17 = e.Hole17,
                             ParHole17 = e.ParHole17,
                             Hole18 = e.Hole18,
-                            ParHole18 = e.ParHole18
+                            ParHole18 = e.ParHole18,
+                            CreatedUtc = e.CreatedUtc
 
                         }
                         );
@@ -134,6 +138,8 @@ namespace GolfFinder_Service.Score_Service
                 return
                     new ScoreDetails
                     {
+                        CourseID= entity.CourseID,
+                        CourseName = ctx.Courses.FirstOrDefault(c => c.CourseID == entity.CourseID).CourseName,
                         Hole1 = entity.Hole1,
                         ParHole1 = entity.ParHole1,
                         Hole2 = entity.Hole2,
@@ -169,7 +175,8 @@ namespace GolfFinder_Service.Score_Service
                         Hole17 = entity.Hole17,
                         ParHole17 = entity.ParHole17,
                         Hole18 = entity.Hole18,
-                        ParHole18 = entity.ParHole18
+                        ParHole18 = entity.ParHole18,
+                        CreatedUtc = entity.CreatedUtc,
                     };
             }
         }
@@ -215,6 +222,7 @@ namespace GolfFinder_Service.Score_Service
                 entity.Hole17 = model.Hole17;
                 entity.ParHole17 = model.ParHole17;
                 entity.Hole18 = model.Hole18;
+                entity.ParHole18 = model.ParHole18;
 
 
                 return ctx.SaveChanges() == 1;

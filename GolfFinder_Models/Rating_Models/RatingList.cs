@@ -11,6 +11,8 @@ namespace GolfFinder_Models.Rating_Models
     {
         //public virtual Course Course { get; set; }
         public int  RatingID  { get; set; }
+        public int CourseID { get; set; }
+        public string CourseName { get; set; }
         public int Cleanliness { get; set; }
 
         public int Layout { get; set; }

@@ -15,9 +15,10 @@ namespace GolfFinder_Data.RatingsData
         public int RatingID { get; set; }
         [Required]
         public Guid OwnerID { get; set; }
-        //[ForeignKey(nameof(Course))]
-        //public int CourseID { get; set; }
-        //public virtual Course Course { get; set; }
+
+        [ForeignKey(nameof(Course))]
+        public int? CourseID { get; set; }
+        public virtual Course Course { get; set; }
 
         [Required, Range(0,10)]
         public int Cleanliness { get; set; }

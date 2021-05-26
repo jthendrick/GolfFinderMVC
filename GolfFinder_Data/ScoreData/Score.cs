@@ -1,6 +1,8 @@
-﻿using System;
+﻿using GolfFinder_Data.CourseData;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +14,10 @@ namespace GolfFinder_Data.ScoreData
         [Key]
         public int ScoreID { get; set; }
         public Guid OwnerID { get; set; }
+
+        [ForeignKey(nameof(Course))]
+        public int CourseID { get; set; }
+        public virtual Course Course { get; set; }
 
         public int Hole1 { get; set; }
         public int ParHole1      { get; set; }
@@ -60,7 +66,7 @@ namespace GolfFinder_Data.ScoreData
                 return netScore;
             }
         }
-            
 
+        public DateTimeOffset CreatedUtc { get; set; }
     }
 }

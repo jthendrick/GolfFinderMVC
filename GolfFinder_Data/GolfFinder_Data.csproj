@@ -56,13 +56,13 @@
   <ItemGroup>
     <Compile Include="CourseData\Course.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202105220052190_Initial.cs" />
-    <Compile Include="Migrations\202105220052190_Initial.Designer.cs">
-      <DependentUpon>202105220052190_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\202105261443476_foreignkeys1.cs" />
+    <Compile Include="Migrations\202105261443476_foreignkeys1.Designer.cs">
+      <DependentUpon>202105261443476_foreignkeys1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202105230122573_Added Views.cs" />
-    <Compile Include="Migrations\202105230122573_Added Views.Designer.cs">
-      <DependentUpon>202105230122573_Added Views.cs</DependentUpon>
+    <Compile Include="Migrations\202105261555091_foreignkeys2.cs" />
+    <Compile Include="Migrations\202105261555091_foreignkeys2.Designer.cs">
+      <DependentUpon>202105261555091_foreignkeys2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,11 +74,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202105220052190_Initial.resx">
-      <DependentUpon>202105220052190_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202105261443476_foreignkeys1.resx">
+      <DependentUpon>202105261443476_foreignkeys1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105230122573_Added Views.resx">
-      <DependentUpon>202105230122573_Added Views.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202105261555091_foreignkeys2.resx">
+      <DependentUpon>202105261555091_foreignkeys2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
