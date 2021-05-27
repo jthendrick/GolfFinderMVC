@@ -12,13 +12,13 @@
 </head>
 <body>
     <div class="container">
-        <!-- Search input -->
+        
         <input id="searchInput" class="controls" type="text" placeholder="Enter a location">
 
-        <!-- Google map -->
+       
         <div id="map"></div>
 
-        <!-- Display geo location data -->
+        
         <ul class="geo-data">
             <li>Full Address: <span id="location"></span></li>
             <li>Postal Code: <span id="postal_code"></span></li>
@@ -85,7 +85,7 @@
                 infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
                 infowindow.open(map, marker);
 
-                // Location details
+                
                 for (var i = 0; i < place.address_components.length; i++) {
                     if (place.address_components[i].types[0] == 'postal_code') {
                         document.getElementById('postal_code').innerHTML = place.address_components[i].long_name;
